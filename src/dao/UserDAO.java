@@ -7,7 +7,6 @@ import java.sql.*;
 
 public class UserDAO {
 
-    // 🔹 REGISTER (WITH DEPARTMENT)
     public static boolean registerUser(String name, String email, String password, String department) {
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(
@@ -17,7 +16,7 @@ public class UserDAO {
             ps.setString(2, email);
             ps.setString(3, password);
             ps.setString(4, "faculty");
-            ps.setString(5, department); // 🔥 NEW
+            ps.setString(5, department); 
 
             int rows = ps.executeUpdate();
             return rows > 0;
@@ -28,17 +27,15 @@ public class UserDAO {
         }
     }
 
-    // 🔹 OBJECT REGISTER
     public boolean register(User u) {
         return registerUser(
                 u.getName(),
                 u.getEmail(),
                 u.getPassword(),
-                u.getDepartment()   // 🔥 IMPORTANT
+                u.getDepartment()   
         );
     }
 
-    // 🔹 LOGIN (RETURN USER OBJECT WITH DEPARTMENT)
     public static User loginUser(String email, String password) {
 
         try (Connection con = DBConnection.getConnection();
