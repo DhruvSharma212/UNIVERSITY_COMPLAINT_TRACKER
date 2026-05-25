@@ -54,7 +54,7 @@ public class UserDAO {
                 u.setName(rs.getString("name"));
                 u.setEmail(rs.getString("email"));
                 u.setRole(rs.getString("role"));
-                u.setDepartment(rs.getString("department")); // 🔥 NEW
+                u.setDepartment(rs.getString("department"));
 
                 return u;
             }
