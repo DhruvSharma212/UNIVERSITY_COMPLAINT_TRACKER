@@ -79,7 +79,7 @@ public class RegisterPage extends JFrame {
             u.setName(nameText);
             u.setEmail(emailText);
             u.setPassword(passText);
-            u.setDepartment(dept); // 🔥 MOST IMPORTANT
+            u.setDepartment(dept); 
 
             boolean ok = new UserDAO().register(u);
 
