@@ -7,12 +7,10 @@ public class User {
     private String email;
     private String password;
     private String role;
-    private String department;   // 🔥 NEW FIELD
+    private String department;
 
-    // 🔹 DEFAULT CONSTRUCTOR
     public User() {}
 
-    // 🔹 PARAMETERIZED CONSTRUCTOR (optional but useful)
     public User(int id, String name, String email, String password, String role, String department) {
         this.id = id;
         this.name = name;
@@ -21,8 +19,6 @@ public class User {
         this.role = role;
         this.department = department;
     }
-
-    // 🔹 GETTERS
 
     public int getId() {
         return id;
@@ -44,12 +40,10 @@ public class User {
         return role;
     }
 
-    public String getDepartment() {   // 🔥 NEW
+    public String getDepartment() { 
         return department;
     }
-
-    // 🔹 SETTERS
-
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -70,7 +64,7 @@ public class User {
         this.role = role;
     }
 
-    public void setDepartment(String department) {   // 🔥 NEW
+    public void setDepartment(String department) {
         this.department = department;
     }
 }
