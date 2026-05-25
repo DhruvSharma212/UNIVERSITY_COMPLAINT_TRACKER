@@ -20,7 +20,6 @@ public class RegisterPage extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // 🔥 NAME
         JLabel l1 = new JLabel("Name:");
         l1.setBounds(50, 20, 100, 30);
         add(l1);
@@ -29,7 +28,6 @@ public class RegisterPage extends JFrame {
         name.setBounds(50, 50, 250, 30);
         add(name);
 
-        // 🔥 EMAIL
         JLabel l2 = new JLabel("Email:");
         l2.setBounds(50, 80, 100, 30);
         add(l2);
@@ -37,8 +35,7 @@ public class RegisterPage extends JFrame {
         email = new JTextField();
         email.setBounds(50, 110, 250, 30);
         add(email);
-
-        // 🔥 PASSWORD
+        
         JLabel l3 = new JLabel("Password:");
         l3.setBounds(50, 140, 100, 30);
         add(l3);
@@ -47,7 +44,6 @@ public class RegisterPage extends JFrame {
         pass.setBounds(50, 170, 250, 30);
         add(pass);
 
-        // 🔥 DEPARTMENT
         JLabel l4 = new JLabel("Department:");
         l4.setBounds(50, 200, 100, 30);
         add(l4);
@@ -58,12 +54,10 @@ public class RegisterPage extends JFrame {
         deptBox.setBounds(50, 230, 250, 30);
         add(deptBox);
 
-        // 🔥 BUTTON
         JButton register = new JButton("Register");
         register.setBounds(50, 270, 250, 30);
         add(register);
 
-        // 🔥 ACTION
         register.addActionListener(e -> {
 
             String nameText = name.getText().trim();
@@ -71,7 +65,6 @@ public class RegisterPage extends JFrame {
             String passText = new String(pass.getPassword()).trim();
             String dept = deptBox.getSelectedItem().toString();
 
-            // 🔴 VALIDATION
             if(nameText.isEmpty() || emailText.isEmpty() || passText.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "All fields are required");
                 return;
