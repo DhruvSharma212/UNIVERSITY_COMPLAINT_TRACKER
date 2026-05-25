@@ -43,25 +43,21 @@ public class LoginPage extends JFrame {
         reg.setBounds(50, 185, 200, 30);
         add(reg);
 
-        // 🔥 REGISTER BUTTON
         reg.addActionListener(e -> {
             new RegisterPage();
             dispose();
         });
 
-        // 🔥 LOGIN BUTTON
         login.addActionListener(e -> {
 
             String emailText = email.getText().trim();
             String passwordText = new String(pass.getPassword()).trim();
 
-            // 🔴 EMPTY CHECK
             if(emailText.isEmpty() || passwordText.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Enter email & password");
                 return;
             }
 
-            // 🔥 ADMIN LOGIN (SABSE PEHLE)
             if(emailText.equals("admin@gmail.com") && passwordText.equals("admin123")) {
                 JOptionPane.showMessageDialog(null, "Admin Login Successful");
 
@@ -74,7 +70,6 @@ public class LoginPage extends JFrame {
                 return;
             }
 
-            // 🔥 USER LOGIN (DB)
             User u = UserDAO.loginUser(emailText, passwordText);
 
             if(u != null) {
