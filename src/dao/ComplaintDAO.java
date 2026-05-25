@@ -9,7 +9,6 @@ import java.util.List;
 
 public class ComplaintDAO {
 
-    // ADD COMPLAINT
     public static boolean addComplaint(int userId, String category, String desc, String priority) {
 
         String query = "INSERT INTO complaints(user_id, category, description, priority, status) VALUES(?,?,?,?,?)";
@@ -32,7 +31,6 @@ public class ComplaintDAO {
         }
     }
 
-    // GET ALL COMPLAINTS (ADMIN) WITH NAME + DEPARTMENT + DATE
     public static List<Complaint> getAllComplaints() {
 
         List<Complaint> list = new ArrayList<>();
@@ -76,7 +74,6 @@ public class ComplaintDAO {
         return list;
     }
 
-    // GET USER'S OWN COMPLAINTS
     public static List<Complaint> getUserComplaints(int userId) {
 
         List<Complaint> list = new ArrayList<>();
@@ -112,7 +109,6 @@ public class ComplaintDAO {
         return list;
     }
 
-    // DELETE ONLY OWN
     public static boolean deleteComplaint(int id, int userId) {
 
         String query = "DELETE FROM complaints WHERE id=? AND user_id=?";
@@ -132,7 +128,6 @@ public class ComplaintDAO {
         }
     }
 
-    // UPDATE ONLY OWN
     public static boolean updateComplaint(int id, int userId, String category, String desc, String priority) {
 
         String query = "UPDATE complaints SET category=?, description=?, priority=? WHERE id=? AND user_id=?";
@@ -155,7 +150,6 @@ public class ComplaintDAO {
         }
     }
 
-    // RESOLVE (ADMIN)
     public static boolean resolveComplaint(int id) {
 
         String query = "UPDATE complaints SET status='Resolved' WHERE id=?";
