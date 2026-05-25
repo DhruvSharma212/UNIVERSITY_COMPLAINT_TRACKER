@@ -25,7 +25,6 @@ public class FacultyDashboard extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // TOP PANEL
         JPanel topPanel = new JPanel(new GridLayout(3, 4, 10, 10));
 
         categoryBox = new JComboBox<>(new String[]{
@@ -60,7 +59,6 @@ public class FacultyDashboard extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
 
-        // SHOW CUSTOM FIELD IF "Other"
         categoryBox.addActionListener(e -> {
             if (categoryBox.getSelectedItem().equals("Other")) {
                 customCategory.setVisible(true);
@@ -69,7 +67,6 @@ public class FacultyDashboard extends JFrame {
             }
         });
 
-        // TABLE
         model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{
                 "ID", "Category", "Description", "Priority", "Status", "Date"
@@ -78,7 +75,6 @@ public class FacultyDashboard extends JFrame {
         table = new JTable(model);
         add(new JScrollPane(table), BorderLayout.CENTER);
 
-        // BOTTOM PANEL
         JPanel panel = new JPanel();
 
         JButton editBtn = new JButton("Edit");
@@ -93,10 +89,8 @@ public class FacultyDashboard extends JFrame {
 
         add(panel, BorderLayout.SOUTH);
 
-        // LOAD DATA
         loadComplaints();
 
-        // ADD COMPLAINT
         submitBtn.addActionListener(e -> {
 
             String category = categoryBox.getSelectedItem().toString();
@@ -129,7 +123,6 @@ public class FacultyDashboard extends JFrame {
             }
         });
 
-        // DELETE
         deleteBtn.addActionListener(e -> {
             int row = table.getSelectedRow();
 
@@ -150,7 +143,6 @@ public class FacultyDashboard extends JFrame {
             }
         });
 
-        // EDIT
         editBtn.addActionListener(e -> {
 
             int row = table.getSelectedRow();
@@ -212,10 +204,8 @@ public class FacultyDashboard extends JFrame {
             }
         });
 
-        // REFRESH
         refreshBtn.addActionListener(e -> loadComplaints());
 
-        // LOGOUT
         logoutBtn.addActionListener(e -> {
             Session.clear();
             new LoginPage();
@@ -225,7 +215,6 @@ public class FacultyDashboard extends JFrame {
         setVisible(true);
     }
 
-    // LOAD DATA
     private void loadComplaints() {
         model.setRowCount(0);
 
